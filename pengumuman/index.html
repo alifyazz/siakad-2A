@@ -800,7 +800,12 @@
 
   <!-- Javascript Logic -->
   <script>
-    const API_URL = '';
+    const API_URL = (
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1' ||
+      window.location.hostname === '' ||
+      window.location.protocol === 'file:'
+    ) ? 'http://localhost:8080/api' : 'https://dituniverse.alwaysdata.net/api';
 
     let announcements = [];
     let categories = [];
